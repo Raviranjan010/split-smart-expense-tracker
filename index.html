@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitSmart - Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+                    <path d="M16 8L22 14H18V20H14V14H10L16 8Z" fill="white"/>
+                    <path d="M16 24L10 18H14V12H18V18H22L16 24Z" fill="white" opacity="0.7"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span>SplitSmart</span>
+            </div>
+            <div class="header-balance">
+                <span class="balance-label">Total Balance</span>
+                <span class="balance-amount" id="totalBalance">$0.00</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Expense Form -->
+            <section class="card add-expense-section">
+                <h2 class="section-title">Add New Expense</h2>
+                <form id="expenseForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" id="description" placeholder="e.g., Dinner at restaurant" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount ($)</label>
+                            <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paidBy">Paid By</label>
+                            <select id="paidBy" required>
+                                <option value="">Select person</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <select id="category" required>
+                                <option value="food">🍔 Food & Dining</option>
+                                <option value="transport">🚗 Transport</option>
+                                <option value="entertainment">🎬 Entertainment</option>
+                                <option value="shopping">🛍️ Shopping</option>
+                                <option value="bills">💡 Bills</option>
+                                <option value="other">📦 Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group split-section">
+                        <label>Split Between</label>
+                        <div id="splitBetween" class="split-checkboxes"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Add Expense
+                    </button>
+                </form>
+            </section>
+
+            <!-- People Management -->
+            <section class="card people-section">
+                <h2 class="section-title">People</h2>
+                <div class="add-person-form">
+                    <input type="text" id="personName" placeholder="Add new person...">
+                    <button type="button" id="addPersonBtn" class="btn btn-secondary">Add</button>
+                </div>
+                <div id="peopleList" class="people-list"></div>
+            </section>
+
+            <!-- Expenses List -->
+            <section class="card expenses-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Expenses</h2>
+                    <button id="clearAllBtn" class="btn btn-ghost">Clear All</button>
+                </div>
+                <div id="expensesList" class="expenses-list"></div>
+            </section>
+
+            <!-- Settlement Summary -->
+            <section class="card settlement-section">
+                <h2 class="section-title">Settlement Summary</h2>
+                <div id="settlementSummary" class="settlement-summary"></div>
+            </section>
+          
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
