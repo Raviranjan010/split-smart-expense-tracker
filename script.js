@@ -1,4 +1,4 @@
-// Data Storage
+  // Data Storage
 let people = [];
 let expenses = [];
 
